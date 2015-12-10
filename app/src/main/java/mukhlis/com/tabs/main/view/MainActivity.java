@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         initViewPager(mViewPager);
@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViewPager(ViewPager viewPager) {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragment(new ShalatFragment(), "Shalat");
-        viewPagerAdapter.addFragment(new AyatFragment(), "Ayat");
-        mViewPager.setAdapter(viewPagerAdapter);
+        viewPagerAdapter.addFragment(new ShalatFragment(), "Panduan Shalat");
+        viewPagerAdapter.addFragment(new AyatFragment(), "Ayat-Ayat");
+        viewPager.setAdapter(viewPagerAdapter);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
