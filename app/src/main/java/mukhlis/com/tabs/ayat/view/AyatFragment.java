@@ -59,9 +59,9 @@ public class AyatFragment extends Fragment {
     private void populateData() {
         mDataset = new ArrayList<>();
         mDataset.add(new Ayat("The Book", "Al-Baqarah", 2, "This is the book about which there is no " +
-                "doubt, a guidance for these conscious of Allah"));
+                "doubt, a guidance for these conscious of Allah", R.raw.ringtone));
         mDataset.add(new Ayat("Ant", "An-Naml", 18, "until, when they came upon the valley of the ants," +
                 "an ant said, \"O ants, enter your dwellings that ou not be crushed by Solomon" +
-                "and his soldiers while they perceive not"));
+                "and his soldiers while they perceive not", R.raw.ringtone));
     }
 }

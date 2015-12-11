@@ -15,11 +15,14 @@ public class Ayat {
 
     private String imageUrl;
 
-    public Ayat(String topik, String namaSurat, int ayat, String terjemahan) {
+    private int resourceFile;
+
+    public Ayat(String topik, String namaSurat, int ayat, String terjemahan, int resourceFile) {
         this.topik = topik;
         this.namaSurat = namaSurat;
         this.ayat = ayat;
         this.terjemahan = terjemahan;
+        this.resourceFile = resourceFile;
     }
 
     public String getTopik() {
@@ -40,5 +43,9 @@ public class Ayat {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public int getResourceFile() {
+        return resourceFile;
     }
 }

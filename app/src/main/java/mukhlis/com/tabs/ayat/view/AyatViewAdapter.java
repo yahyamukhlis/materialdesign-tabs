@@ -1,5 +1,6 @@
 package mukhlis.com.tabs.ayat.view;
 
+import android.media.MediaPlayer;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,11 +31,19 @@ public class AyatViewAdapter extends RecyclerView.Adapter<AyatViewAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         Ayat ayat = mDataset[position];
         holder.mTopic.setText(ayat.getTopik());
         holder.mSuratAyat.setText(ayat.getNamaSurat() + " ayat " + ayat.getAyat());
         holder.mTerjemahan.setText(ayat.getTerjemahan());
+        final MediaPlayer mediaPlayer = MediaPlayer.create(holder.mItemView.getContext(),
+                ayat.getResourceFile());
+        holder.mImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.start();
+            }
+        });
     }
 
     @Override
