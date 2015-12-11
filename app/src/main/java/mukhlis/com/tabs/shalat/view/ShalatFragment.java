@@ -1,5 +1,6 @@
 package mukhlis.com.tabs.shalat.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,11 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mukhlis.com.tabs.R;
+import mukhlis.com.tabs.shalatdetail.view.ShalatDetailActivity;
 
 /**
  * Created by yahyamukhlis on 12/8/15.
  */
-public class ShalatFragment extends Fragment {
+public class ShalatFragment extends Fragment implements ShalatView {
 
     private View mRootView;
 
@@ -48,7 +50,7 @@ public class ShalatFragment extends Fragment {
             mRecyclerView.setLayoutManager(mLayoutManager);
 
             populateData();
-            mAdapter = new ShalatViewAdapter(mDataset.toArray(new String[mDataset.size()]));
+            mAdapter = new ShalatViewAdapter(this, mDataset.toArray(new String[mDataset.size()]));
             mRecyclerView.setAdapter(mAdapter);
         }
         return mRootView;
@@ -66,5 +68,12 @@ public class ShalatFragment extends Fragment {
         mDataset.add("Duduk diantara 2 sujud");
         mDataset.add("Tahiyat Awal dan Akhir");
         mDataset.add("Salam");
+    }
+
+    @Override
+    public void showShalatDetail(String title) {
+        Intent intent = new Intent(getActivity(), ShalatDetailActivity.class);
+        intent.putExtra("title", title);
+        startActivity(intent);
     }
 }

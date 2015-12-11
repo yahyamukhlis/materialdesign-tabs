@@ -1,5 +1,6 @@
 package mukhlis.com.tabs.shalat.view;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import mukhlis.com.tabs.R;
+import mukhlis.com.tabs.shalatdetail.view.ShalatDetailActivity;
 
 /**
  * Created by yahyamukhlis on 12/10/15.
@@ -16,8 +18,11 @@ public class ShalatViewAdapter extends RecyclerView.Adapter<ShalatViewAdapter.Vi
 
     private String[] mDataset;
 
-    public ShalatViewAdapter(String[] dataset) {
-        mDataset = dataset;
+    private ShalatView mShalatView;
+
+    public ShalatViewAdapter(ShalatView shalatView, String[] dataset) {
+        this.mShalatView = shalatView;
+        this.mDataset = dataset;
     }
 
     @Override
@@ -32,7 +37,7 @@ public class ShalatViewAdapter extends RecyclerView.Adapter<ShalatViewAdapter.Vi
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), mDataset[position], Toast.LENGTH_SHORT);
+                mShalatView.showShalatDetail(mDataset[position]);
             }
         });
 

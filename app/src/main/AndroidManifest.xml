@@ -18,6 +18,8 @@
 
         <activity android:name=".main.view.MainActivity" />
 
+        <activity android:name=".shalatdetail.view.ShalatDetailActivity" />
+
     </application>
 
 </manifest>
