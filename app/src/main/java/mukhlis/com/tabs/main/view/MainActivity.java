@@ -15,6 +15,7 @@ import java.util.List;
 import mukhlis.com.tabs.R;
 import mukhlis.com.tabs.ayat.view.AyatFragment;
 import mukhlis.com.tabs.shalat.view.ShalatFragment;
+import mukhlis.com.tabs.surah.view.SurahFragment;
 
 /**
  * Created by yahyamukhlis on 12/8/15.
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(new ShalatFragment(), "Panduan Shalat");
         viewPagerAdapter.addFragment(new AyatFragment(), "Ayat-Ayat");
+        viewPagerAdapter.addFragment(new SurahFragment(), "Surat-Surat");
         viewPager.setAdapter(viewPagerAdapter);
     }
 
